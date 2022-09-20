@@ -1,0 +1,25 @@
+{{ define "main" }}
+    <h1>{{ .Title }}</h1>
+
+    <h2>list blog</h2>
+    <ul>
+        {{ range where .Site.RegularPages "Section" "blog" }}
+        <li>
+            <a href="{{.Permalink}}"> {{.Title}} </a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et dolor vitae nunc ultrices ullamcorper eu sed tortor. Nullam et nunc fermentum sapien tempor euismod. Donec efficitur scelerisque arcu luctus lobortis.</p>
+            <span> Dibuat {{ .Date | time.Format ":date_long" }} </span>
+        </li>
+        {{ end }}
+    </ul>
+    <h2>list post</h2>
+    <ul>
+        {{ range where .Site.RegularPages "Section" "posts" }}
+        <li>
+            <a href="{{.Permalink}}"> {{.Title}} </a> 
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis et dolor vitae nunc ultrices ullamcorper eu sed tortor. Nullam et nunc fermentum sapien tempor euismod. Donec efficitur scelerisque arcu luctus lobortis.</p>
+            <span> Dibuat {{ .Date | time.Format ":date_long" }} </span>
+        </li>
+        {{ end }}
+    </ul>
+
+{{ end }}
